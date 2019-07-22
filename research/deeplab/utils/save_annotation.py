@@ -60,6 +60,6 @@ def save_annotation(label,
     if scale_values:
       colored_label = 255. * colored_label
 
-  pil_image = img.fromarray(colored_label.astype(dtype=np.uint8))
+  pil_image = img.fromarray(colored_label.astype(dtype=np.uint8), 'RGBA')
   with tf.gfile.Open('%s/%s.png' % (save_dir, filename), mode='w') as f:
     pil_image.save(f, 'PNG')
